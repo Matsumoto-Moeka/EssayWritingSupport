@@ -1,35 +1,65 @@
 package application;
 
 
-/*
- * class Idea
- * 	１つのアイデアの全情報を格納するクラス
+/**
+ * 	１つのアイデアの全情報を格納する
  * 	ただし、リンク関係の情報に関してはLinkクラスのインスタンスlinkを参照している
- *
+ *	@author 松本
  * */
 
 public class Idea {
 
-	/* アイデアが持つ情報(ユーザに入力させるもの) */
-	private String keyword;		//キーワード
-	private String memo;			//メモ
-	private int importance = 1;			//重要度　初期値は1
-	private int order = 1;				//順序　初期値は1
+	//// アイデアが持つ情報(ユーザに入力させるもの) ///
+	/**
+	 * キーワード
+	 */
+	private String keyword;
 
-	/* アイデアが持つ情報(システムで管理するもの) */
-	private Link link;					//リンク
+	/**
+	 * メモ
+	 */
+	private String memo;
+
+	/**
+	 * 重要度　初期値=0<br>
+	 * 兄弟アイデア間単位でつける
+	 */
+	private int importance = 0;
+
+	/**
+	 * 順序　初期値=0<br>
+	 * 兄弟アイデア間単位でつける
+	 */
+	private int order = 0;
+
+
+
+	/// アイデアが持つ情報(システムで管理するもの) ///
+
+	/**
+	 * ID<br>
+	 * 識別用ID。（削除したものも含めて）生成した順の通し番号。通し番号はIdeaControllerからもらう
+	 */
+	private int id;
+
+	/**
+	 * リンク
+	 */
+	private Link link;
 
 
 	//////////コンストラクタ///////////
-	public Idea(String keyword, String memo) {
+	public Idea(String keyword, String memo, int id) {
 		this.keyword = keyword;
 		this.memo = memo;
 		this.link = new Link();
+		this.id = id;
 
 		//display
 		System.out.println("create Idea\n"
 				+ "\t keyword:" + keyword + "\n"
-				+ "\t memo:" + memo);
+				+ "\t memo:" + memo + "\n"
+				+ "\t id:" + id);
 	}
 	//////////////////////////////////
 
