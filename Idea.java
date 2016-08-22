@@ -1,5 +1,8 @@
-package application;
+package data;
 
+import application.IdeaBoxController;
+import javafx.geometry.Point2D;
+import javafx.scene.layout.VBox;
 
 /**
  * 	１つのアイデアの全情報を格納する
@@ -47,6 +50,17 @@ public class Idea {
 	 */
 	private Link link;
 
+	/**
+	 * workAreaでの表示位置
+	 * Seveとかで使うならIdeaBoxControllerよりこっちに保存のほうがいいか？分からぬ。保留
+	 */
+	private Point2D point;
+
+	/**
+	 * 対応するIdeaBoxのController(いらない？？)
+	 */
+	private IdeaBoxController ctrl;
+
 
 	//////////コンストラクタ///////////
 	public Idea(String keyword, String memo, int id) {
@@ -90,7 +104,30 @@ public class Idea {
 		return link;
 	}
 
+	public Point2D getPoint(){
+		return point;
+	}
+
+	public int getId(){
+		return id;
+	}
+
+	public IdeaBoxController getController(){
+		return ctrl;
+	}
+
+	public VBox getIdeaBox(){
+		return ctrl.getIdeaBox();
+	}
+
+
 	///////////setter/////////////////
+
+
+	public void setPoint(Point2D point) {
+		this.point = point;
+	}
+
 
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
@@ -111,6 +148,13 @@ public class Idea {
 		this.order = order;
 	}
 
+	public void setId(int id){
+		this.id = id;
+	}
+
+	public void setController(IdeaBoxController ctrl){
+		this.ctrl = ctrl;
+	}
 
 	//////////////////////////////////
 
