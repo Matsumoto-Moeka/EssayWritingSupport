@@ -14,12 +14,19 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
+
 			Scene scene = new Scene(root);
-		//	scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());		//cssを使用することになればコメントアウトを外す
+
+			//css指定　なんかエラーになる 2016/8/8
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("EssayWritingSupport");	//左上のタイトル
 			primaryStage.show();
+
+
+
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

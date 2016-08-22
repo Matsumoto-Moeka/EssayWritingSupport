@@ -1,82 +1,56 @@
 package application;
 
-/**
- * メイン画面に関する動作記述
- * @author 松本
- */
+import java.net.URL;
+import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 
-public class MainWindowController {
+public class MainWindowController implements Initializable {
 
 	/**
-	 * 作業領域
+	 * メニューバー(Top)
+	 */
+	@FXML
+	private MenuBar menuBar;
+	@FXML
+	private MenuBarController menuBarController;
+
+	/**
+	 * 作業領域(Center)
 	 */
 	@FXML
 	private AnchorPane workArea;
-
-	///////左側領域////////
+	@FXML
+	private WorkAreaController workAreaController;
 
 	/**
-	 * 追加ボタン
+	 * 全体の操作(Left)
 	 */
 	@FXML
-	private Button addButton;
+	private AnchorPane operation;
+	@FXML
+	private OperationController operationController;
 
 	/**
-	 * キーワード入力領域
+	 * 情報(Right)
 	 */
 	@FXML
-	private TextField keywordField;
-
-	/**
-	 * メモ入力領域
-	 */
+	private AnchorPane information;
 	@FXML
-	private TextArea memoArea;
+	private InformationController informationController;
 
 
-
-	///////右側領域////////
-
-
-
-
-
-
-	///////変数宣言////////
-	private IdeaController ideaController = new IdeaController();
-
-
-	/**
-	 * 追加ボタンを押したときの動作。<br>
-	 * キーワード、メモを取得して新しいアイデアを作り、表示
-	 * @author 松本
-	 */
-	@FXML
-	protected void addIdeaAction(ActionEvent e){
-		System.out.println("addButton pressed.");
-
-		//アイデアを生成、追加
-		Idea createIdea = ideaController.addIdea(keywordField.getText(), memoArea.getText());
-
-		//入力フォームをクリア
-		keywordField.setText("");
-		memoArea.setText("");
-
-		//アイデア表示用コンテナを作成
-		VBox ideaPane = new VBox();
-		ideaPane.getChildren().add(new Label(createIdea.getKeyword()));
-		ideaPane.getChildren().add(new Label(createIdea.getMemo()));
-		workArea.getChildren().add(ideaPane);
+	@Override
+	public void initialize(URL url,ResourceBundle rb){
+		/**
+		 * 各コントローラー同士の参照
+		 */
+		operationController.setWorkAreaController(workAreaController);
 
 	}
+
 
 }

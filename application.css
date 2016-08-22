@@ -1,1 +1,5 @@
-@CHARSET "utf-8";
+.idea-box{
+	-fx-background-color : lavender;
+	-fx-border-color : black;
+	-fx-border-width : 0px;
+}

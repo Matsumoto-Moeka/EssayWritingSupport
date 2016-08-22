@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafxl/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OperationController">
+	<children>
+	     <SplitPane dividerPositions="0.4198396793587174" orientation="VERTICAL" prefHeight="919.0" prefWidth="200.0">
+	       <items>
+	         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+	              <children>
+	                 <VBox layoutX="9.0" layoutY="11.0" prefHeight="459.0" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="5.0">
+	                    <children>
+	                       <Label text="アイデアの追加">
+	                          <font>
+	                             <Font size="14.0" />
+	                          </font></Label>
+	                       <Label text="キーワード" />
+	                       <TextField fx:id="keywordField"/>
+	                       <Label text="メモ" />
+	                       <TextArea fx:id="memoArea" prefHeight="83.0" prefWidth="192.0">
+	                          <VBox.margin>
+	                             <Insets />
+	                          </VBox.margin>
+	                       </TextArea>
+	                       <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="192.0">
+	                          <children>
+	                             <Label text="Alt+Enter　" />
+	                             <Button fx:id="addButton" onAction="#addIdeaAction" contentDisplay="TOP" mnemonicParsing="false" text="追加" />
+	                          </children>
+	                       </HBox>
+	                    </children>
+	                 </VBox>
+	              </children>
+	           </AnchorPane>
+	         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+	       </items>
+	     </SplitPane>
+	  </children>
+</AnchorPane>
+
